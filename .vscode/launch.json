@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/dist/index.js",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "env": {
+                "OPEN_WEATHER_MAP_API_KEY": "fb3ec04226db46f716e3175b6c4da646",
+                "MAPBOX_API_KEY": "pk.eyJ1IjoidGhlYWx0ZXJuYXRvcjg5IiwiYSI6ImNrMmJiaXJ3eTFrN2gzY25wOTA4aWd6ODMifQ.izE2rg-f0lDwrt8Npriw8Q"
+            },
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js"
+            ]
+        }
+    ]
+}
