@@ -4,7 +4,10 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "webpack --mode=production",
+    "build:server": "tsc",
+    "postbuild": "node build-tasks/copy-views.js",
     "prestart": "npm run build",
     "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,11 +18,18 @@
     "@types/koa": "^2.11.0",
     "@types/koa-router": "^7.0.42",
     "@types/node": "^13.1.1",
-    "typescript": "^3.7.4"
+    "copyfiles": "^2.1.1",
+    "terser-webpack-plugin": "^2.3.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "koa": "^2.11.0",
     "koa-router": "^7.4.0",
+    "koa-send": "^5.0.0",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "uuid": "^3.3.3",

@@ -1,0 +1,159 @@
+#weather {
+    position: absolute;
+    top: 70px;
+    right: 70px;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    border-radius: 18px;
+    padding: 15px;
+    width: 310px;
+    overflow: hidden;
+}
+
+#main_weather {
+    width: 100%;
+    height: 150px;
+}
+
+#main_icon {
+    position: absolute;
+    top: 35px;
+    left: 10px;
+}
+
+#main_temp {
+    position: absolute;
+    top: 50px;
+    left: 120px;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+#main_max_temp {
+    position: absolute;
+    top: 52px;
+    background-color: red;
+}
+
+#main_min_temp {
+    position: absolute;
+    top: 82px;
+    background-color: blue;
+}
+
+.main_minmax_temp {
+    left: 270px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#main_condition {
+    position: absolute;
+    top: 125px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#weather hr {
+    border-color: white;;
+}
+
+.additional_weather {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.additional_loc {
+    flex: 2;
+    margin-top: 10px;
+}
+
+.additional_temp {
+    margin-top: 10px;
+}
+
+#weather_updated {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    right: 0px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.clouds {
+    background: linear-gradient(30deg, 
+        #4d4d4d 0%,
+
+        #686868 7%, 
+        #737373 8%, 
+        #686868 9%, 
+
+        #4d4d4d 16%,
+
+        #686868 23%, 
+        #737373 24%, 
+        #686868 25%, 
+
+        #4d4d4d 32%, 
+
+        #686868 39%, 
+        #737373 40%, 
+        #686868 41%, 
+
+        #4d4d4d 48%, 
+
+        #686868 55%, 
+        #737373 56%, 
+        #686868 57%, 
+
+        #4d4d4d 64%, 
+
+        #686868 71%, 
+        #737373 72%, 
+        #686868 73%, 
+
+        #4d4d4d 80%, 
+
+        #686868 87%, 
+        #737373 88%, 
+        #686868 89%, 
+
+        #4d4d4d 96%, 
+        
+        #4d4d4d 100%
+    );
+}
+
+.clear {
+    background: linear-gradient(125deg,
+        #037294 0%,
+
+        #037294 4%,
+
+        #0598c5 20%, 
+        #05a3d3 24%, 
+        #0598c5 28%, 
+
+        #037294 40%,
+
+        #0598c5 52%, 
+        #05a3d3 56%, 
+        #0598c5 60%, 
+
+        #037294 72%,
+
+        #0598c5 85%, 
+        #05a3d3 88%, 
+        #0598c5 91%, 
+
+        #037294 96%, 
+        
+        #037294 100%
+    );
+}

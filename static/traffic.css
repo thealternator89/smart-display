@@ -1,0 +1,76 @@
+#traffic {
+    position: absolute; 
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 250px;
+}
+
+.traffic_pane {
+    position: absolute;
+    border: thin solid black;
+    width: 150px;
+    height: 150px;
+    bottom: 15px;
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#traffic_1 {
+    right: 15px;
+}
+
+#traffic_2 {
+    right: 190px;
+}
+
+#traffic_3 {
+    right: 365px;
+}
+
+#traffic_4 {
+    right: 540px;
+}
+
+#traffic_5 {
+    right: 715px;
+}
+
+.traffic_low {
+    background-color: #009900;
+}
+
+.traffic_moderate {
+    background-color: #884400;
+}
+
+.traffic_heavy {
+    background-color: #990000
+}
+
+.traffic_severe {
+    background: linear-gradient(#000 0%, #990000 35%, #990000 70%, #f00 100%);
+}
+
+.traffic_unknown {
+    background: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 70%, #000 100%);
+}
+
+.travel_time_dest {
+    font-weight: bold;
+}
+
+.travel_time_min {
+    font-size: 75px;
+    font-weight: bold;
+}
+
+.travel_time_unit {
+    margin-top: -10px;
+}
+
+.travel_time_via {
+    margin-top: 5px;
+    font-weight: bold;
+}

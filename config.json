@@ -29,7 +29,17 @@
                             }
                         ]
                     ]
-                },{
+                }
+            ]
+        },
+        {
+            "active": {
+                "days": "sat,sun",
+                "timeStart": "08:00",
+                "timeEnd": "18:00"
+            },
+            "routes": [
+                {
                     "start": {
                         "name": "Home",
                         "coords": "-43.38312,172.63139"
@@ -47,25 +57,29 @@
                         "name": "Adventure Park",
                         "coords": "-43.578288, 172.615732"
                     }
-                }
-            ]
-        },
-        {
-            "active": {
-                "days": "sat,sun",
-                "timeStart": "08:00",
-                "timeEnd": "11:00"
-            },
-            "routes": [
+                },
                 {
                     "start": {
                         "name": "Home",
                         "coords": "-43.38312,172.63139"
                     },
                     "end": {
-                        "name": "Bottle Lake",
-                        "coords": "-43.468265,172.679836"
-                    }
+                        "name": "Gym",
+                        "coords": "-43.52315,172.62987"
+                    },
+                    "via": [
+                        [
+                            {
+                                "name": "Main North Road",
+                                "coords": "-43.457376,172.624498"
+                            }
+                        ],[
+                            {
+                                "name": "Marshland Road",
+                                "coords": "-43.463912,172.658486"
+                            }
+                        ]
+                    ]
                 }
             ]
         }
@@ -82,6 +96,14 @@
             "alternate": [{
                 "name": "Kaiapoi",
                 "id": 6220587
+            },
+            {
+                "name": "Gisborne",
+                "id": 2206854
+            },
+            {
+                "name": "Wellington",
+                "id": 2179537
             }]
         },
         {
@@ -95,6 +117,14 @@
             "alternate": [{
                 "name": "Christchurch",
                 "id": 2192362
+            },
+            {
+                "name": "Gisborne",
+                "id": 2206854
+            },
+            {
+                "name": "Wellington",
+                "id": 2179537
             }]
         }
     ]

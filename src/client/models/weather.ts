@@ -1,12 +1,16 @@
-import { Moment } from "moment";
+export interface WeatherData {
+    primary: Weather;
+    alternate: Weather[];
+}
 
-export interface CurrentWeather {
+export interface Weather {
     name: string;
+    condition: WeatherCondition;
     description: string;
     iconUrl: string;
     temp: WeatherTemp;
     wind: WeatherWind;
-    updated: Moment;
+    updated: string;
 }
 
 export interface WeatherTemp {
@@ -26,3 +30,5 @@ export type WindDirection =
     'E'|'ESE'|'SE'|'SSE'|
     'S'|'SSW'|'SW'|'WSW'|
     'W'|'WNW'|'NW'|'NNW';
+
+export type WeatherCondition = 'atmosphere'|'clear'|'clouds'|'drizzle'|'rain'|'snow'|'thunderstorm'|'unknown';

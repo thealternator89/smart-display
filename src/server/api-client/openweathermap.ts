@@ -2,7 +2,8 @@ import fetch from 'node-fetch';
 import * as moment from 'moment';
 
 import { envUtil, ENV_VARS } from "../util/EnvUtil";
-import { CurrentWeather, WindDirection } from "./models/currentweather";
+import { CurrentWeather, WindDirection, WeatherCondition } from "./models/currentweather";
+import { logger } from '../util/LogUtil';
 
 const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather';
 const UNITS : 'imperial'|'metric' = 'metric';
@@ -21,11 +22,13 @@ class OpenWeatherMapClient {
     public async getCurrentWeatherForLocation(locationId: number): Promise<CurrentWeather> {
         const url = `${BASE_URL}?id=${locationId}&units=${UNITS}&APPID=${this.apiToken}`;
         const data = await this.fetchJson(url);
+        const weather = data.weather[0];
 
         return {
             name: data.name,
-            description: data.weather[0].description,
-            iconUrl: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+            description: weather.description,
+            condition: this.getConditionNameFromCode(weather.id),
+            iconUrl: `http://openweathermap.org/img/wn/${weather.icon}@2x.png`,
             temp: {
                 current: data.main.temp,
                 feelsLike: data.main.feels_like,
@@ -37,6 +40,30 @@ class OpenWeatherMapClient {
                 speed: data.wind.speed,
             },
             updated: moment(),
+        }
+    }
+
+    private getConditionNameFromCode(conditionCode: number): WeatherCondition {
+        const fullCondition = `${conditionCode}`;
+        const baseCondition = fullCondition ? fullCondition[0] : '';
+
+        switch (baseCondition) {
+            case '2': return 'thunderstorm';    // 2xx - Thunderstorm
+            case '3': return 'drizzle';         // 3xx - Drizzle
+            case '5': return 'rain';            // 5xx - Rain
+            case '6': return 'snow';            // 6xx - Snow
+            case '7': return 'atmosphere';      // 7xx - Atmosphere
+            case '8': {
+                if (fullCondition === '800'){   // 800 - Clear
+                    return 'clear';
+                } else {                        // 80x - Clouds
+                    return 'clouds';
+                }
+            }
+            default: {
+                logger.warn(`Invalid weather fullConditionCode code found: ${conditionCode}. Using 'unknown'`);
+                return 'unknown';
+            }
         }
     }
 
