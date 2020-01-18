@@ -1,36 +1,73 @@
 {
+    "night": {
+        "enabled": true,
+        "timeStart": "21:00",
+        "timeEnd": "05:00"
+    },
     "traffic": [
         {
             "active": {
                 "days": "mon,tue,wed,thu,fri",
                 "timeStart": "05:00",
-                "timeEnd": "19:00"
+                "timeEnd": "08:00"
             },
-            "routes": [
-                {
-                    "start": {
-                        "name": "Home",
-                        "coords": "-43.38312,172.63139"
-                    },
-                    "end": {
-                        "name": "Work",
-                        "coords": "-43.52315,172.62987"
-                    },
-                    "via": [
-                        [
-                            {
-                                "name": "Main North Road",
-                                "coords": "-43.457376,172.624498"
-                            }
-                        ],[
-                            {
-                                "name": "Marshland Road",
-                                "coords": "-43.463912,172.658486"
-                            }
-                        ]
+            "route": {
+                "start": {
+                    "name": "Home",
+                    "coords": "-43.38312,172.63139"
+                },
+                "end": {
+                    "name": "Work",
+                    "coords": "-43.52315,172.62987"
+                },
+                "via": [
+                    [
+                        {
+                            "name": "Main North Road",
+                            "coords": "-43.457376,172.624498"
+                        }
+                    ],[
+                        {
+                            "name": "Marshland Road",
+                            "coords": "-43.463912,172.658486"
+                        }
                     ]
+                ]
+            }
+        },
+        {
+            "active": {
+                "days": "sat,sun",
+                "timeStart": "08:00",
+                "timeEnd": "10:00"
+            },
+            "route": {
+                "start": {
+                    "name": "Home",
+                    "coords": "-43.38312,172.63139"
+                },
+                "end": {
+                    "name": "Bottle Lake",
+                    "coords": "-43.468354, 172.679903"
                 }
-            ]
+            }
+        },
+        {
+            "active": {
+                "days": "sat,sun",
+                "timeStart": "08:00",
+                "timeEnd": "11:00"
+            },
+            "route": {
+                "start": {
+                    "name": "Home",
+                    "coords": "-43.38312,172.63139"
+                },
+                "end": {
+                    "name": "Adventure Park",
+                    "coords": "-43.578288, 172.615732"
+                }
+            }
         },
         {
             "active": {
@@ -38,56 +75,37 @@
                 "timeStart": "08:00",
                 "timeEnd": "18:00"
             },
-            "routes": [
-                {
-                    "start": {
-                        "name": "Home",
-                        "coords": "-43.38312,172.63139"
-                    },
-                    "end": {
-                        "name": "Bottle Lake",
-                        "coords": "-43.468354, 172.679903"
-                    }
-                }, {
-                    "start": {
-                        "name": "Home",
-                        "coords": "-43.38312,172.63139"
-                    },
-                    "end": {
-                        "name": "Adventure Park",
-                        "coords": "-43.578288, 172.615732"
-                    }
+            "route": {
+                "start": {
+                    "name": "Home",
+                    "coords": "-43.38312,172.63139"
                 },
-                {
-                    "start": {
-                        "name": "Home",
-                        "coords": "-43.38312,172.63139"
-                    },
-                    "end": {
-                        "name": "Gym",
-                        "coords": "-43.52315,172.62987"
-                    },
-                    "via": [
-                        [
-                            {
-                                "name": "Main North Road",
-                                "coords": "-43.457376,172.624498"
-                            }
-                        ],[
-                            {
-                                "name": "Marshland Road",
-                                "coords": "-43.463912,172.658486"
-                            }
-                        ]
+                "end": {
+                    "name": "Gym",
+                    "coords": "-43.52315,172.62987"
+                },
+                "via": [
+                    [
+                        {
+                            "name": "Main North Road",
+                            "coords": "-43.457376,172.624498"
+                        }
+                    ],[
+                        {
+                            "name": "Marshland Road",
+                            "coords": "-43.463912,172.658486"
+                        }
                     ]
-                }
-            ]
+                ]
+            }
         }
     ],
     "weather": [
         {
             "active": {
-                "days": "mon,tue,wed,thu,fri"
+                "days": "mon,tue,wed,thu,fri",
+                "timeStart": "00:00",
+                "timeEnd": "09:00"
             },
             "primary": {
                 "name": "Christchurch",
@@ -96,6 +114,29 @@
             "alternate": [{
                 "name": "Kaiapoi",
                 "id": 6220587
+            },
+            {
+                "name": "Gisborne",
+                "id": 2206854
+            },
+            {
+                "name": "Wellington",
+                "id": 2179537
+            }]
+        },
+        {
+            "active": {
+                "days": "mon,tue,wed,thu,fri",
+                "timeStart": "09:00",
+                "timeEnd": "23:59"
+            },
+            "primary": {
+                "name": "Kaiapoi",
+                "id": 6220587
+            },
+            "alternate": [{
+                "name": "Christchurch",
+                "id": 2192362
             },
             {
                 "name": "Gisborne",
@@ -126,6 +167,26 @@
                 "name": "Wellington",
                 "id": 2179537
             }]
+        }
+    ],
+    "alerts": [
+        {
+            "active": {
+                "days": "wed",
+                "timeStart": "15:00",
+                "timeEnd": "23:00"
+            },
+            "type": "alternating_week",
+            "week": {
+                "even": {
+                    "color": "red",
+                    "text": "Bins out tonight: Rubbish"
+                },
+                "odd": {
+                    "color": "yellow",
+                    "text": "Bins out tonight: Recycling"
+                }
+            }
         }
     ]
 }

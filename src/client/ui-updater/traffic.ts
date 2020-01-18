@@ -25,6 +25,11 @@ export class TrafficUpdater {
         this.show();
     }
 
+    public dispose() {
+        this.teardown();
+        this.hide();
+    }
+
     private buildTrafficElement(traffic: Traffic, position: number): HTMLElement {
         if (position < 0 || position > 4) {
             throw new Error(`Invalid value for traffic position. Expected 0 - 4, but got ${position}`);
@@ -40,6 +45,8 @@ export class TrafficUpdater {
 
         if (traffic.via) {
             div.appendChild(buildDiv({className: 'travel_time_via', content: traffic.via}));
+        } else {
+            div.classList.add('no_via');
         }
 
         return div;

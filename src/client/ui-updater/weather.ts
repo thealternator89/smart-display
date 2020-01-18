@@ -1,5 +1,5 @@
 import { WeatherData, Weather, WeatherCondition } from '../models/weather';
-import { buildDiv, buildImg, buildSpan } from './util';
+import { buildDiv, buildImg, buildSpan, getTimeString } from './util';
 
 const ROOT_SELECTOR = "#weather";
 const MAIN_BG_SELECTOR = "#bg";
@@ -23,17 +23,30 @@ export class WeatherUpdater {
         this.elem.appendChild(this.buildMainWeatherElement(weather.primary));
 
         if (weather.alternate && weather.alternate.length > 0) {
+            const additionalWeather = buildDiv({id: "additional_weather_list"});
             this.elem.appendChild(document.createElement('hr'));
             for(const alt of weather.alternate) {
-                this.elem.appendChild(this.buildAdditionalWeatherElement(alt));
+                additionalWeather.appendChild(this.buildAdditionalWeatherElement(alt));
             }
+            this.elem.appendChild(additionalWeather);
         }
+
+        const updatedDate = new Date(weather.primary.updated);
+
+        this.elem.appendChild(buildDiv({id: 'weather_updated', content: getTimeString(updatedDate)}));
 
         // ensure the weather is now shown;
         this.show();
 
         this.setBackground(weather.primary.condition);
     }
+
+    public dispose() {
+        this.teardown();
+        this.hide();
+        this.setBackground('none');
+    }
+
 
     private buildMainWeatherElement(weather: Weather): HTMLElement {
         const div = buildDiv({id: 'main_weather'});
@@ -52,6 +65,8 @@ export class WeatherUpdater {
         div.appendChild(buildImg({className: 'additional_img', src: weather.iconUrl, width: 40, height: 40}));
         div.appendChild(buildSpan({className: 'additional_loc', content: weather.name}));
         div.appendChild(buildSpan({className: 'additional_temp', content: `${Math.floor(weather.temp.current)}°C`}));
+        div.appendChild(buildSpan({className: 'additional_high', content: `${Math.ceil(weather.temp.max)}°C`}));
+        div.appendChild(buildSpan({className: 'additional_low', content: `${Math.floor(weather.temp.min)}°C`}));
 
         return div;
     }

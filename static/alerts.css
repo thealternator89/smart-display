@@ -1,0 +1,59 @@
+#alerts {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 200px;
+}
+
+.alert_pane {
+    position: absolute;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 20px;
+    height: 70px;
+    width: 180px;
+    left: 10px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+}
+
+.alert_badge {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 25px;
+    left: 15px;
+    border-radius: 10px;
+}
+
+.alert_badge_red {
+    background-color: rgb(172, 0, 0);
+}
+
+.alert_badge_yellow {
+    background-color: rgb(212, 212, 0);
+}
+
+.alert_text {
+    position: absolute;
+    left: 45px;
+    top: 15px;
+    bottom: 10px;
+    right: 10px;
+    color: black;
+    overflow: hidden;
+}
+
+#alert_1 {
+    bottom: 10px;
+}
+
+#alert_2 {
+    bottom: 90px;
+}
+
+#alert_3 {
+    bottom: 170px
+}
+
+#alert_4 {
+    bottom: 250px;
+}

@@ -14,6 +14,7 @@
             "program": "${workspaceFolder}/dist/index.js",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "env": {
+                "PORT": 5050,
                 "OPEN_WEATHER_MAP_API_KEY": "fb3ec04226db46f716e3175b6c4da646",
                 "MAPBOX_API_KEY": "pk.eyJ1IjoidGhlYWx0ZXJuYXRvcjg5IiwiYSI6ImNrMmJiaXJ3eTFrN2gzY25wOTA4aWd6ODMifQ.izE2rg-f0lDwrt8Npriw8Q"
             },

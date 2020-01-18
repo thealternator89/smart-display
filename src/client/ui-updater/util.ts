@@ -20,12 +20,19 @@ export function buildImg(options: BuildImgOptions): HTMLElement {
     return img;
 }
 
-export function leftPad(input: string|number, pad: string, minWidth: number) {
+function leftPad(input: string|number, pad: string, minWidth: number) {
     let output = `${input}`;
     while (output.length < minWidth) {
         output = pad + input;
     }
     return output;
+}
+
+export function getTimeString(time: Date) {
+    const hours = time.getHours();
+    const mins = time.getMinutes();
+
+    return `${leftPad(hours, '0', 2)}:${leftPad(mins, '0', 2)}`;
 }
 
 function buildElem(type: 'div'|'span', options: BuildElemOptions): HTMLElement {

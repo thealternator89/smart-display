@@ -1,9 +1,9 @@
 import fetch from 'node-fetch';
 import * as moment from 'moment';
 
-import { envUtil, ENV_VARS } from "../util/EnvUtil";
-import { CurrentWeather, WindDirection, WeatherCondition } from "./models/currentweather";
-import { logger } from '../util/LogUtil';
+import { envUtil, ENV_VARS } from "../../util/EnvUtil";
+import { CurrentWeather, WindDirection, WeatherCondition } from "../models/currentweather";
+import { logger } from '../../util/LogUtil';
 
 const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather';
 const UNITS : 'imperial'|'metric' = 'metric';

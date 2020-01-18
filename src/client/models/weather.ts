@@ -31,4 +31,4 @@ export type WindDirection =
     'S'|'SSW'|'SW'|'WSW'|
     'W'|'WNW'|'NW'|'NNW';
 
-export type WeatherCondition = 'atmosphere'|'clear'|'clouds'|'drizzle'|'rain'|'snow'|'thunderstorm'|'unknown';
+export type WeatherCondition = 'atmosphere'|'clear'|'clouds'|'drizzle'|'rain'|'snow'|'thunderstorm'|'unknown'|'none';

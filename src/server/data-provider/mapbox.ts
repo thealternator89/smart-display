@@ -1,14 +1,32 @@
 import {v4 as uuid} from 'uuid';
 
-import { AppConfigTrafficRoute, AppConfigTrafficRoutePoint } from "../models/appconfig";
-import { RouteTraffic } from "../api-client/models/routetraffic";
-import { minutesSince } from './util';
-import { mapBoxApiClient } from '../api-client/mapbox';
+import { AppConfigTrafficRoute, AppConfigTrafficRoutePoint, AppConfigTraffic } from "../models/appconfig";
+import { RouteTraffic } from "./models/routetraffic";
+import { minutesSince, isInTimeWindow } from './util';
+import { mapBoxApiClient } from './api-client/mapbox';
 import { logger } from '../util/LogUtil';
 
-class MapBoxCache {
+export class MapBoxDataProvider {
 
     private readonly data: {[id: string]: RouteTraffic[]} = {};
+    private readonly config: AppConfigTraffic[];
+
+    public constructor(config: AppConfigTraffic[]) {
+        this.config = config;
+    }
+
+    public async getCurrentTraffic(): Promise<RouteTraffic[] | undefined> {
+
+        const trafficRoutes = this.config.filter(isInTimeWindow);
+
+        if (!trafficRoutes || trafficRoutes.length === 0) {
+            return undefined;
+        }
+
+        const results: RouteTraffic[][] = await Promise.all(trafficRoutes.map((route) => this.getTrafficForRoutes(route.route)));
+
+        return results.map((route) => route.sort((o1, o2) => o1.duration - o2.duration)[0]);
+    }
 
     public async getTrafficForRoutes(routes: AppConfigTrafficRoute): Promise<RouteTraffic[]> {
         let routeId = (routes as any).id;
@@ -51,5 +69,3 @@ class MapBoxCache {
         return builtRoutes;
     }
 }
-
-export const mapBoxCache = new MapBoxCache();

@@ -1,10 +1,10 @@
 import fetch from 'node-fetch';
 import * as moment from 'moment';
 
-import { envUtil, ENV_VARS } from "../util/EnvUtil";
-import { AppConfigTrafficRoute, AppConfigTrafficRoutePoint } from "../models/appconfig";
-import { RouteTraffic, Congestion } from "./models/routetraffic";
-import { logger } from '../util/LogUtil';
+import { envUtil, ENV_VARS } from "../../util/EnvUtil";
+import { AppConfigTrafficRoutePoint } from "../../models/appconfig";
+import { RouteTraffic, Congestion } from "../models/routetraffic";
+import { logger } from '../../util/LogUtil';
 
 const BASE_URL = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic';
 
@@ -24,7 +24,7 @@ class MapBoxApiClient {
         const viaList = routeRequest.slice(1, routeRequest.length - 1).map((point) => point.name).join(', ');
 
         const response= await fetch(
-            `https://api.mapbox.com/directions/v5/mapbox/driving-traffic?access_token=${this.apiToken}`,
+            `${BASE_URL}?access_token=${this.apiToken}`,
             { method: 'POST', body: body }
         );
         const json = await response.json();

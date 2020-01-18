@@ -10,9 +10,14 @@
     overflow: hidden;
 }
 
+#location {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 #main_weather {
     width: 100%;
-    height: 150px;
+    height: 140px;
 }
 
 #main_icon {
@@ -32,13 +37,13 @@
 #main_max_temp {
     position: absolute;
     top: 52px;
-    background-color: red;
+    background-color: #e93e38;
 }
 
 #main_min_temp {
     position: absolute;
-    top: 82px;
-    background-color: blue;
+    top: 87px;
+    background-color: #05a3d3;
 }
 
 .main_minmax_temp {
@@ -62,6 +67,10 @@
     border-color: white;;
 }
 
+#additional_weather_list {
+    margin-bottom: 20px;
+}
+
 .additional_weather {
     display: flex;
     width: 100%;
@@ -71,19 +80,47 @@
 .additional_loc {
     flex: 2;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 .additional_temp {
-    margin-top: 10px;
+    margin-top: 5px;
+    padding: 5px;
+    height: 20px;
+    margin-left: 5px;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.additional_high {
+    margin-top: 5px;
+    padding: 5px;
+    height: 20px;
+    margin-left: 5px;
+    background-color: #e93e38;
+    border-radius: 10px;
+}
+
+.additional_low {
+    margin-top: 5px;
+    padding: 5px;
+    height: 20px;
+    margin-left: 5px;
+    background-color: #05a3d3;
+    border-radius: 10px;
 }
 
 #weather_updated {
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     left: 0px;
     right: 0px;
     font-size: 12px;
     text-align: center;
+}
+
+#weather_updated::before {
+    content: "Updated: ";
 }
 
 .clouds {

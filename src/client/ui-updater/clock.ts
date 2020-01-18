@@ -1,4 +1,4 @@
-import { leftPad } from "./util";
+import { getTimeString } from "./util";
 
 const CLOCK_SELECTOR = '#time';
 const DATE_SELECTOR = '#date';
@@ -14,15 +14,8 @@ export class ClockUpdater {
     }
 
     public displayTime(time: Date) {
-        this.clockElem.textContent = this.getTimeString(time);
+        this.clockElem.textContent = getTimeString(time);
         this.dateElem.textContent = this.getDateString(time);
-    }
-
-    private getTimeString(time: Date) {
-        const hours = time.getHours();
-        const mins = time.getMinutes();
-
-        return `${leftPad(hours, '0', 2)}:${leftPad(mins, '0', 2)}`;
     }
 
     private getDateString(date: Date) {

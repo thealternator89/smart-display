@@ -1,3 +1,4 @@
-import { AppConfig } from "../models/appconfig";
+import { AppConfig } from '../models/appconfig';
+import { readFileSync } from 'fs';
 
-export const config = require('../../config.json') as AppConfig;
+export const config = JSON.parse(readFileSync('config.json', 'UTF-8')) as AppConfig;
