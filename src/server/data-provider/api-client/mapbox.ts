@@ -37,6 +37,7 @@ class MapBoxApiClient {
             via: viaList,
             duration: route.duration,
             congestion: this.getCongestionFromRoute(route),
+            geometry: route.geometry,
             updated: moment()
         }
     }
