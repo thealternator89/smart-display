@@ -1,10 +1,12 @@
-import { buildDiv, buildImg, buildSpan } from './util';
+import { buildDiv } from './util';
 import { Traffic } from '../models/traffic';
+import { TrafficDialogBuilder } from './ui-builder/traffic-dialog-builder';
 
 const ROOT_SELECTOR = "#traffic";
 
 export class TrafficUpdater {
     private readonly elem: HTMLElement;
+    private readonly trafficDialogBuilder = new TrafficDialogBuilder();
 
     public constructor() {
         this.elem = document.querySelector(ROOT_SELECTOR);
@@ -48,6 +50,10 @@ export class TrafficUpdater {
         } else {
             div.classList.add('no_via');
         }
+
+        div.onclick = () => {
+            this.trafficDialogBuilder.buildRouteDialog(traffic);
+        };
 
         return div;
     }

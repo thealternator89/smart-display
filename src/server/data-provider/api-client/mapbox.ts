@@ -21,8 +21,6 @@ class MapBoxApiClient {
     public async getTrafficForRoute(routeRequest: AppConfigTrafficRoutePoint[]): Promise<RouteTraffic> {
         const body = this.buildBody(routeRequest.map((point) => this.latLonToLonLat(point.coords)).join(';'));
 
-        const viaList = routeRequest.slice(1, routeRequest.length - 1).map((point) => point.name).join(', ');
-
         const response= await fetch(
             `${BASE_URL}?access_token=${this.apiToken}`,
             { method: 'POST', body: body }
@@ -34,7 +32,7 @@ class MapBoxApiClient {
         return {
             start: routeRequest[0].name,
             end: routeRequest[routeRequest.length - 1].name,
-            via: viaList,
+            via: route.legs[0].summary,
             duration: route.duration,
             congestion: this.getCongestionFromRoute(route),
             geometry: route.geometry,
@@ -73,6 +71,7 @@ class MapBoxApiClient {
         body.append('annotations', 'congestion,duration');
         body.append('overview', 'full');
         body.append('geometries', 'geojson');
+        body.append('steps', 'true');
         return body;
     }
 
@@ -82,7 +81,8 @@ class MapBoxApiClient {
 
         for (const level of congestion) {
             switch(level.toLowerCase()) {
-                case 'unknown': continue; // don't count unknowns.
+                case 'unknown':
+                    continue; // don't count unknowns.
                 case 'low': 
                     break; // don't increment score.
                 case 'moderate': 

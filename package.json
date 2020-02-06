@@ -15,6 +15,7 @@
   "devDependencies": {
     "@types/koa": "^2.11.0",
     "@types/koa-router": "^7.0.42",
+    "@types/mapbox-gl": "^1.7.0",
     "@types/node": "^13.1.1",
     "copyfiles": "^2.1.1",
     "json-loader": "^0.5.7",

@@ -14,25 +14,12 @@
             "route": {
                 "start": {
                     "name": "Home",
-                    "coords": "-43.38312,172.63139"
+                    "coords": "-43.38312, 172.63139"
                 },
                 "end": {
                     "name": "Work",
-                    "coords": "-43.52315,172.62987"
-                },
-                "via": [
-                    [
-                        {
-                            "name": "Main North Road",
-                            "coords": "-43.457376,172.624498"
-                        }
-                    ],[
-                        {
-                            "name": "Marshland Road",
-                            "coords": "-43.463912,172.658486"
-                        }
-                    ]
-                ]
+                    "coords": "-43.52315, 172.62987"
+                }
             }
         },
         {
@@ -44,7 +31,7 @@
             "route": {
                 "start": {
                     "name": "Home",
-                    "coords": "-43.38312,172.63139"
+                    "coords": "-43.38312, 172.63139"
                 },
                 "end": {
                     "name": "Bottle Lake",
@@ -61,7 +48,7 @@
             "route": {
                 "start": {
                     "name": "Home",
-                    "coords": "-43.38312,172.63139"
+                    "coords": "-43.38312, 172.63139"
                 },
                 "end": {
                     "name": "Adventure Park",
@@ -73,30 +60,34 @@
             "active": {
                 "days": "sat,sun",
                 "timeStart": "08:00",
-                "timeEnd": "18:00"
+                "timeEnd": "15:00"
             },
             "route": {
                 "start": {
                     "name": "Home",
-                    "coords": "-43.38312,172.63139"
+                    "coords": "-43.38312, 172.63139"
                 },
                 "end": {
                     "name": "Gym",
-                    "coords": "-43.52315,172.62987"
+                    "coords": "-43.523230, 172.630392"
+                }
+            }
+        },
+        {
+            "active": {
+                "days": "sun",
+                "timeStart": "13:00",
+                "timeEnd": "16:00"
+            },
+            "route": {
+                "start": {
+                    "name": "Home",
+                    "coords": "-43.38312, 172.63139"
                 },
-                "via": [
-                    [
-                        {
-                            "name": "Main North Road",
-                            "coords": "-43.457376,172.624498"
-                        }
-                    ],[
-                        {
-                            "name": "Marshland Road",
-                            "coords": "-43.463912,172.658486"
-                        }
-                    ]
-                ]
+                "end": {
+                    "name": "English Park",
+                    "coords": "-43.508840, 172.636597"
+                }
             }
         }
     ],
@@ -114,6 +105,10 @@
             "alternate": [{
                 "name": "Kaiapoi",
                 "id": 6220587
+            },
+            {
+                "name": "Auckland",
+                "id": 2193733
             },
             {
                 "name": "Gisborne",
@@ -139,6 +134,10 @@
                 "id": 2192362
             },
             {
+                "name": "Auckland",
+                "id": 2193733
+            },
+            {
                 "name": "Gisborne",
                 "id": 2206854
             },
@@ -158,6 +157,10 @@
             "alternate": [{
                 "name": "Christchurch",
                 "id": 2192362
+            },
+            {
+                "name": "Auckland",
+                "id": 2193733
             },
             {
                 "name": "Gisborne",

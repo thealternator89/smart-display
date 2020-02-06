@@ -86,6 +86,11 @@
 }
 
 .travel_time_via {
+    font-size: 11px;
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
     position: absolute;
     bottom: 10px;
     left: 5px;
@@ -98,4 +103,61 @@
 
 .no_via .travel_time_unit {
     top: 110px;
+}
+
+#route_dialog {
+    position: absolute;
+    top: 100px;
+    bottom: 100px;
+    left: 100px;
+    right: 100px;
+    border: thin solid black;
+    background-color: dimgrey;
+    z-index: 100;
+}
+
+#route_dialog_close_button {
+    position: absolute;
+    background-color:black; 
+    color: white; 
+    border-radius: 15px; 
+    height: 25px; /* allow for top padding */
+    width: 30px; 
+    right: -15px; 
+    top: -15px; 
+    padding-top: 5px; 
+    text-align: center; 
+    font-weight: bold;
+    z-index: 150;
+}
+
+#route_dialog_close_button::before {
+    content: "X";
+}
+
+#route_dialog_content {
+    position: absolute;
+    /* Fill parent */
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+#route_dialog_closing_timer {
+    position: absolute;
+    bottom: 50px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+#route_dialog_closing_timer::before {
+    content: "Closing in ";
+}
+
+#route_dialog_closing_timer::after {
+    content: " seconds";
 }

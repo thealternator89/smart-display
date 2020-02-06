@@ -10,6 +10,7 @@ import { NightModeDataProvider } from "../data-provider/nightmodedataprovider";
 import { RouteTraffic } from "../data-provider/models/routetraffic";
 import { CurrentWeather } from "../data-provider/models/currentweather";
 import { Alert } from "../data-provider/models/alert";
+import { envUtil, ENV_VARS } from "../util/EnvUtil";
 
 const router = new Router();
 
@@ -20,9 +21,15 @@ const nightModeDataProvider = new NightModeDataProvider(config.night);
 
 router.get('/', async (ctx) => {
     await send(ctx, '/views/client.html');
-})
+});
 
 router.get('/config', (ctx) => {
+    ctx.body = {
+        mapboxApiToken: envUtil.getStringValue(ENV_VARS.MapBoxApiKey),
+    };
+})
+
+router.get('/internal/config', (ctx) => {
     ctx.body = config;
 });
 
